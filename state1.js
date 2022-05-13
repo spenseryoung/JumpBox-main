@@ -75,9 +75,6 @@ var SceneOne = new Phaser.Class({
     
     //this.physics.add.collider(jump, player);
 
-    
-    this.add.text(26250, 150, 'Congrats you completed level 1!',{ fontSize: '32px', fill: '#FFF' });
-
     console.log("hi im state1");
     this.physics.world.setFPS(fps);
     platforms = this.physics.add.staticGroup();

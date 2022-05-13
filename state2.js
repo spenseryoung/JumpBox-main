@@ -29,7 +29,7 @@ var SceneTwo = new Phaser.Class({
   preload:function(){
     this.load.image("bg","bg.png");//1000x600
     this.load.image("ground","ground.png"); //150x100
-    this.load.audio("track1","metal-blues.mp3");
+    this.load.audio("track2","metal-blues.mp3");
     this.load.audio("jumpSound","jumpSound.wav");
     this.load.audio("punchSound","snareSound.wav");
     this.load.image("dot","vol_slider_knob.png");
@@ -124,7 +124,7 @@ var SceneTwo = new Phaser.Class({
     
     
 
-    bgTrack = this.sound.add("track1", .2);
+    bgTrack = this.sound.add("track2", .2);
     jumpTrack = this.sound.add("jumpSound");
     punchTrack = this.sound.add("punchSound");
     bgTrack.play();

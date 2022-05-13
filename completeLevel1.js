@@ -7,8 +7,13 @@ var CompletedLevelOne = new Phaser.Class({
     init: function(data) {
         this.message = data.message;
     },
-    preload: function() {},
+    preload: function() {
+        this.load.audio("song","story song.mp3");
+    },
     create: function() {
+        bgTrack = this.sound.add("song", .2);
+        bgTrack.play();
+
         spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         var text = this.add.text(
@@ -25,7 +30,7 @@ var CompletedLevelOne = new Phaser.Class({
     update: function() {
         if (Phaser.Input.Keyboard.JustDown(spacebar))
         {
-            
+            bgTrack.stop();
             this.scene.start('SceneTwo');
         }
     }
