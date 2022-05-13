@@ -6,7 +6,7 @@ var text;
 var timedEvent;
 gameOver = false;
 var jumpSigns;
-var healthText;
+var scoreText;
 var spacebar;
 
 //assumed scene params, may want to move to config?
@@ -58,8 +58,8 @@ var SceneOne = new Phaser.Class({
     this.initialTime = 94;
     text = this.add.text(32, 32, 'Countdown: ' + formatTime(this.initialTime));
 
-    this.health = 3;
-    healthText = this.add.text(32, 48, 'Health: ' + this.health);
+    this.score = 0;
+    scoreText = this.add.text(32, 48, 'Score: ' + this.score);
 
     // Each 1000 ms call onEvent
     timedEvent = this.time.addEvent({ delay: 1000, callback: onEvent, callbackScope: this, loop: true });
@@ -71,12 +71,14 @@ var SceneOne = new Phaser.Class({
     // phaser builds in order, so top image last
 
     text.setScrollFactor(0,0);
-    healthText.setScrollFactor(0.0);
+    scoreText.setScrollFactor(0.0);
     
     //this.physics.add.collider(jump, player);
 
     
-    this.add.text(26250, 150, 'Congrats you completed level 1!',{ fontSize: '32px', fill: '#FFF' });
+    //this.add.text(26250, 150, 'Congrats you completed level 1!',{ fontSize: '32px', fill: '#FFF' });
+
+    
 
     console.log("hi im state1");
     this.physics.world.setFPS(fps);
@@ -89,7 +91,7 @@ var SceneOne = new Phaser.Class({
     //buildStage1();
     //platforms.create(x,y,"tag");//.setScale(2).refreshBody(); // setScale doubles size, need .refreshBody because we've changed a static body
     console.log("map scene1 made");
-    player = this.physics.add.sprite(150,250,"king");
+    player = this.physics.add.sprite(150, 250,"king");
     player.setBounce(0);
     player.setCollideWorldBounds(false);
     this.anims.create({
@@ -135,7 +137,7 @@ var SceneOne = new Phaser.Class({
     boxSigns = this.physics.add.staticGroup();
     doors = this.physics.add.staticGroup();
 
-    doors.create(700, 230, "door").setScale(0.4,0.4);
+    doors.create(26250, 230, "door").setScale(0.4,0.4);
 
     //jump tutorial
     jumpSigns.create(1200,275,"jumpSign");
@@ -150,7 +152,7 @@ var SceneOne = new Phaser.Class({
     //box tutorial
     this.add.text(2800, 150, 'PRESS RIGHT ARROW TO BOX',{ fontSize: '32px', fill: '#FFF' });
     boxSigns.create(3750,275,"boxSign");
-    this.add.text(3500, 150, 'TIME WITH THE SYMBOL TO DEFEAT ENEMIES',{ fontSize: '32px', fill: '#FFF' });
+    this.add.text(3500, 150, 'DEFEAT ENEMIES AND JUMP ON BEAT TO RAISE YOUR SCORE',{ fontSize: '32px', fill: '#FFF' });
     enemies.create(3800,275,"enemy");
     boxSigns.create(4050,275,"boxSign");
     enemies.create(4100,275,"enemy");
@@ -270,6 +272,158 @@ var SceneOne = new Phaser.Class({
     boxSigns.create(14475,140,"boxSign");
     enemies.create(14525,140,"enemy");
 
+    jumpSigns.create(14700, 140, "jumpSign");
+    platforms.create(14925,160,"ground");
+    platforms.create(15225,215,"ground");
+    jumpSigns.create(15300, 140, "jumpSign");
+    platforms.create(15525,160,"ground");
+    platforms.create(15825,215,"ground");
+    jumpSigns.create(15900, 140, "jumpSign");
+    platforms.create(16125,160,"ground");
+    platforms.create(16275,215,"ground");
+    platforms.create(16425,215,"ground");
+    platforms.create(16575,215,"ground");
+    platforms.create(16725,215,"ground");
+    platforms.create(16875,215,"ground");
+    platforms.create(17025,215,"ground");
+
+    boxSigns.create(16350, 140, "boxSign");
+    enemies.create(16400,140,"enemy");
+    boxSigns.create(16500, 140, "boxSign");
+    enemies.create(16550,140,"enemy");
+    boxSigns.create(16650, 140, "boxSign");
+    enemies.create(16700,140,"enemy");
+    boxSigns.create(16725, 140, "boxSign");
+    enemies.create(16775,140,"enemy");
+    boxSigns.create(16950, 140, "boxSign");
+    enemies.create(17000,140,"enemy");
+    boxSigns.create(17025, 140, "boxSign");
+    enemies.create(17075,140,"enemy");
+    jumpSigns.create(17100, 140, "jumpSign");
+
+    platforms.create(17325,215,"ground");
+    platforms.create(17475,255,"ground");
+    platforms.create(17625,295,"ground");
+    platforms.create(17475,235,"ground");
+
+    boxSigns.create(18000,275,"boxSign");
+    enemies.create(18050, 275, "enemy");
+    boxSigns.create(18150,275,"boxSign");
+    enemies.create(18200, 275, "enemy");
+    boxSigns.create(18300,275,"boxSign");
+    enemies.create(18350, 275, "enemy");
+    boxSigns.create(18450,275,"boxSign");
+    enemies.create(18500, 275, "enemy");
+
+    boxSigns.create(18600,275,"boxSign");
+    enemies.create(18650, 275, "enemy");
+    boxSigns.create(18675,275,"boxSign");
+    enemies.create(18725, 275, "enemy");
+    boxSigns.create(18750,275,"boxSign");
+    enemies.create(18800, 275, "enemy");
+    boxSigns.create(18825,275,"boxSign");
+    enemies.create(18875, 275, "enemy");
+
+    boxSigns.create(19200,275,"boxSign");
+    enemies.create(19250, 275, "enemy");
+    boxSigns.create(19275,275,"boxSign");
+    enemies.create(19325, 275, "enemy");
+    boxSigns.create(19350,275,"boxSign");
+    enemies.create(19400, 275, "enemy");
+    boxSigns.create(19425,275,"boxSign");
+    enemies.create(19475, 275, "enemy");
+
+    boxSigns.create(19650,275,"boxSign");
+    enemies.create(19700, 275, "enemy");
+    boxSigns.create(19725,275,"boxSign");
+    enemies.create(19775, 275, "enemy");
+
+    boxSigns.create(19950,275,"boxSign");
+    enemies.create(20000, 275, "enemy");
+    boxSigns.create(20025,275,"boxSign");
+    enemies.create(20075, 275, "enemy");
+    boxSigns.create(20175,275,"boxSign");
+    enemies.create(20225, 275, "enemy");
+    boxSigns.create(20250,275,"boxSign");
+    enemies.create(20300, 275, "enemy");
+    boxSigns.create(20475,275,"boxSign");
+    enemies.create(20525, 275, "enemy");
+    boxSigns.create(20550,275,"boxSign");
+    enemies.create(20600, 275, "enemy");
+
+    boxSigns.create(20775,275,"boxSign");
+    enemies.create(20825, 275, "enemy");
+    boxSigns.create(20850,275,"boxSign");
+    enemies.create(20900, 275, "enemy");
+    boxSigns.create(20925,275,"boxSign");
+    enemies.create(20975, 275, "enemy");
+    boxSigns.create(21000,275,"boxSign");
+    enemies.create(21050, 275, "enemy");
+    boxSigns.create(21075,275,"boxSign");
+    enemies.create(21125, 275, "enemy");
+
+    jumpSigns.create(21150,275,"jumpSign");
+    platforms.create(21300,310,"ground");
+    jumpSigns.create(21750,275,"jumpSign");
+    platforms.create(21900,310,"ground");
+    jumpSigns.create(22350,275,"jumpSign");
+    platforms.create(22500,310,"ground");
+    boxSigns.create(22950,275,"boxSign");
+    enemies.create(23000, 275, "enemy");
+    boxSigns.create(23025,275,"boxSign");
+    enemies.create(23075, 275, "enemy");
+    jumpSigns.create(23100,275,"jumpSign");
+    platforms.create(23325,295,"ground");
+
+    platforms.create(23475,295,"ground");
+    platforms.create(23625,295,"ground");
+    platforms.create(23775,295,"ground");
+    platforms.create(23925,295,"ground");
+    boxSigns.create(23700,220,"boxSign");
+    enemies.create(23750, 220, "enemy");
+    boxSigns.create(23775,220,"boxSign");
+    enemies.create(23825, 220, "enemy");
+    boxSigns.create(23850,220,"boxSign");
+    enemies.create(23900, 220, "enemy");
+    boxSigns.create(23925,220,"boxSign");
+    enemies.create(23975, 220, "enemy");
+
+    boxSigns.create(24150,275,"boxSign");
+    enemies.create(24200, 275, "enemy");
+    boxSigns.create(24450,275,"boxSign");
+    enemies.create(24500, 275, "enemy");
+
+    boxSigns.create(24750,275,"boxSign");
+    enemies.create(24800, 275, "enemy");
+    boxSigns.create(24900,275,"boxSign");
+    enemies.create(24950, 275, "enemy");
+    boxSigns.create(25050,275,"boxSign");
+    enemies.create(25100, 275, "enemy");
+    boxSigns.create(25200,275,"boxSign");
+    enemies.create(25250, 275, "enemy");
+
+    boxSigns.create(25500,275,"boxSign");
+    enemies.create(25550, 275, "enemy");
+    boxSigns.create(25575,275,"boxSign");
+    enemies.create(25625, 275, "enemy");
+    boxSigns.create(25650,275,"boxSign");
+    enemies.create(25700, 275, "enemy");
+    boxSigns.create(25725,275,"boxSign");
+    enemies.create(25775, 275, "enemy");
+    boxSigns.create(25800,275,"boxSign");
+    enemies.create(25850, 275, "enemy");
+    boxSigns.create(25875,275,"boxSign");
+    enemies.create(25925, 275, "enemy");
+    boxSigns.create(25950,275,"boxSign");
+    enemies.create(26000, 275, "enemy");
+    boxSigns.create(26025,275,"boxSign");
+    enemies.create(26075, 275, "enemy");
+
+
+    //platforms.create(21375,295,"ground");
+    
+
+
 
 
 
@@ -369,15 +523,10 @@ function punchChance(player, enemy)
 {
   if (cursors.right.isDown)
     {
-      player.anims.play('punch', false);
       enemy.disableBody(true, true);
-    }
-  else
-    {
-      if (this.health > 0)
-      {
-        this.health = this.health - 1
-      }
+      player.anims.play('punch', false);
+      this.score = this.score + 1;
+      scoreText.setText('Score: ' + this.score);
     }
 }
 

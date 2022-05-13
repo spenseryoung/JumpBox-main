@@ -369,15 +369,10 @@ function punchChance(player, enemy)
 {
   if (cursors.right.isDown)
     {
-      player.anims.play('punch', false);
       enemy.disableBody(true, true);
-    }
-  else
-    {
-      if (this.health > 0)
-      {
-        this.health = this.health - 1
-      }
+      player.anims.play('punch', false);
+      this.score = this.score + 1;
+      scoreText.setText('Score: ' + this.score);
     }
 }
 
