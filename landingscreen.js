@@ -32,7 +32,7 @@ var TitleScreen = new Phaser.Class({
   update:function(){
     if (Phaser.Input.Keyboard.JustDown(spacebar))
     {
-        this.scene.start('SceneOne');
+        this.scene.start('Story');
         //bgTrack.stop();
     }
   

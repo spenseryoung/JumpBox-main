@@ -29,7 +29,7 @@ var SceneTwo = new Phaser.Class({
   preload:function(){
     this.load.image("bg","bg.png");//1000x600
     this.load.image("ground","ground.png"); //150x100
-    this.load.audio("track1","metal-blues.mp3");
+    this.load.audio("track2","metal-blues.mp3");
     this.load.audio("jumpSound","jumpSound.wav");
     this.load.audio("punchSound","snareSound.wav");
     this.load.image("dot","vol_slider_knob.png");
@@ -124,7 +124,7 @@ var SceneTwo = new Phaser.Class({
     
     
 
-    bgTrack = this.sound.add("track1", .2);
+    bgTrack = this.sound.add("track2", .2);
     jumpTrack = this.sound.add("jumpSound");
     punchTrack = this.sound.add("punchSound");
     bgTrack.play();
@@ -138,24 +138,33 @@ var SceneTwo = new Phaser.Class({
     //doors.create(700, 230, "door").setScale(0.4,0.4);
 
     //jump tutorial
+
     jumpSigns.create(1200,275,"jumpSign");
-    this.add.text(1000, 150, 'TIME JUMPS WITH SYMBOL',{ fontSize: '32px', fill: '#FFF' });
-    jumpSigns.create(1950,275,"jumpSign");
-    platforms.create(2175,295,"ground");
-    platforms.create(2325,295,"ground");
+    platforms.create(1425,295,"ground");
+    jumpSigns.create(1500,220,"jumpSign");
+    platforms.create(1725,255,"ground");
+    jumpSigns.create(1800,175,"jumpSign");
+    platforms.create(2025,215,"ground");
+    jumpSigns.create(2100,120,"jumpSign");
+    platforms.create(2325,175,"ground");
+
     platforms.create(2475,295,"ground");
     platforms.create(2625,295,"ground");
-    jumpSigns.create(2550,220,"jumpSign");
+
 
     //box tutorial
-    this.add.text(2800, 150, 'PRESS RIGHT ARROW TO BOX',{ fontSize: '32px', fill: '#FFF' });
+
     boxSigns.create(3750,275,"boxSign");
-    this.add.text(3500, 150, 'TIME WITH THE SYMBOL TO DEFEAT ENEMIES',{ fontSize: '32px', fill: '#FFF' });
     enemies.create(3800,275,"enemy");
-    boxSigns.create(4050,275,"boxSign");
-    enemies.create(4100,275,"enemy");
+    boxSigns.create(3825,275,"boxSign");
+    enemies.create(3875,275,"enemy");
+
     boxSigns.create(4350,275,"boxSign");
     enemies.create(4400,275,"enemy");
+    boxSigns.create(4425,275,"boxSign");
+    enemies.create(4475,275,"enemy");
+    boxSigns.create(4500,275,"boxSign");
+    enemies.create(4550,275,"enemy");
     //this.add.text(4800, 150, 'IF HEALTH HITS 0 OR PLATFORM IS HIT, LEVEL WILL RESTART',{ fontSize: '32px', fill: '#FFF' });
 
     jumpSigns.create(4950,275,"jumpSign");
