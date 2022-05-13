@@ -151,14 +151,20 @@ var SceneTwo = new Phaser.Class({
     platforms.create(2475,295,"ground");
     platforms.create(2625,295,"ground");
 
-    
+
     //box tutorial
+
     boxSigns.create(3750,275,"boxSign");
     enemies.create(3800,275,"enemy");
-    boxSigns.create(4050,275,"boxSign");
-    enemies.create(4100,275,"enemy");
+    boxSigns.create(3825,275,"boxSign");
+    enemies.create(3875,275,"enemy");
+
     boxSigns.create(4350,275,"boxSign");
     enemies.create(4400,275,"enemy");
+    boxSigns.create(4425,275,"boxSign");
+    enemies.create(4475,275,"enemy");
+    boxSigns.create(4500,275,"boxSign");
+    enemies.create(4550,275,"enemy");
     //this.add.text(4800, 150, 'IF HEALTH HITS 0 OR PLATFORM IS HIT, LEVEL WILL RESTART',{ fontSize: '32px', fill: '#FFF' });
 
     jumpSigns.create(4950,275,"jumpSign");

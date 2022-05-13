@@ -356,9 +356,7 @@ function hitDoor(player, door)
 
     bgTrack.stop();
 
-    this.scene.start("CompletedLevelOne", { 
-        "message": "Congrats! You completed level 1!\nPress SPACEBAR to start level 2!"
-      });
+    this.scene.start("CompletedLevelOne");
   }
 }
 
