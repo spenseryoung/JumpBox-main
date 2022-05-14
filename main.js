@@ -9,7 +9,7 @@ var config = {
           gravity: { y: 300 }
       }
   },
-  scene: [ TitleScreen, Story, SceneOne, SceneTwo, CompletedLevelOne, Lose ]
+  scene: [ TitleScreen, Story, SceneOne, SceneTwo, CompletedLevelOne, Lose, Outside, CompletedLevelTwo ]
 };
 
 var game = new Phaser.Game(config);

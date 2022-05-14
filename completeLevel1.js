@@ -17,7 +17,7 @@ var CompletedLevelOne = new Phaser.Class({
 
         spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.add.text(20, 250, "Congrats! or so you thought...\nAs you open the door, there's another long hallway...\nPress SPACEBAR to start level 2!",{ fontSize: '20px', fill: '#FFF', boundsAlignH: "center", boundsAlignV: "middle" });
+        this.add.text(20, 250, "Congrats! or so you thought...\nAs you open the door, there's another long hallway...\nAnd a newsong plays...\nPress SPACEBAR to start level 2!",{ fontSize: '20px', fill: '#FFF', boundsAlignH: "center", boundsAlignV: "middle" });
 
     },
     update: function() {
