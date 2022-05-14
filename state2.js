@@ -25,7 +25,10 @@ var SceneTwo = new Phaser.Class({
   initialize: function() {
     Phaser.Scene.call(this, { "key": "SceneTwo" });
   },
-  init: function() {},
+  init: function(data) {
+    console.log('init', data);
+    this.score = data.id;
+  },
   preload:function(){
     this.load.image("bg","bg.png");//1000x600
     this.load.image("ground","ground.png"); //150x100
@@ -58,8 +61,13 @@ var SceneTwo = new Phaser.Class({
     this.initialTime = 94;
     text = this.add.text(32, 32, 'Countdown: ' + formatTime(this.initialTime));
 
+<<<<<<< HEAD
     this.score = 0;
     scoreText = this.add.text(32, 48, 'Score: ' + this.score);
+=======
+    
+    scoreText = this.add.text(32, 48, 'Score ' + this.score);
+>>>>>>> 8a4e30def285c5cacc3211b9afacc716b39ea1b0
 
     // Each 1000 ms call onEvent
     timedEvent = this.time.addEvent({ delay: 1000, callback: onEvent, callbackScope: this, loop: true });
@@ -534,6 +542,7 @@ var SceneTwo = new Phaser.Class({
 });
 
 
+<<<<<<< HEAD
 function hitDoor2(player, door)
 {
   if (this.physics.collide(player, door))
@@ -583,43 +592,8 @@ function jumpNow()
       console.log("jump");
     }
 }
+=======
+>>>>>>> 8a4e30def285c5cacc3211b9afacc716b39ea1b0
 
 
 
-function formatTime(seconds){
-  // Minutes
-  var minutes = Math.floor(seconds/60);
-  // Seconds
-  var partInSeconds = seconds%60;
-  // Adds left zeros to seconds
-  partInSeconds = partInSeconds.toString().padStart(2,'0');
-  // Returns formated time
-  return `${minutes}:${partInSeconds}`;
-}
-
-function onEvent(){
-  this.initialTime -= 1; // One second
-  text.setText('Countdown: ' + formatTime(this.initialTime));
-}
-
-function onEvent2()
-{
-      this.physics.pause();
-
-      player.setTint(0xff0000);
-
-      player.anims.play('turn');
-
-      this.time.addEvent({
-        delay: 2000,
-        loop: false,
-        callback: () => {
-            this.scene.start("Lose", { 
-                "message": "Game Over!\nPress SPACEBAR to restart!"
-            });
-          }
-      })
-
-    gameOver = true;
-
-}

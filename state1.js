@@ -137,9 +137,14 @@ var SceneOne = new Phaser.Class({
     boxSigns = this.physics.add.staticGroup();
     doors = this.physics.add.staticGroup();
 
+<<<<<<< HEAD
     //doors.create(26250, 230, "door").setScale(0.4,0.4);
     doors.create(750, 230, "door").setScale(0.4,0.4);
 
+=======
+    doors.create(26250, 230, "door").setScale(0.4,0.4);
+    doors.create(4900, 230, "door").setScale(0.4,0.4);
+>>>>>>> 8a4e30def285c5cacc3211b9afacc716b39ea1b0
 
     //jump tutorial
     jumpSigns.create(1200,275,"jumpSign");
@@ -154,7 +159,7 @@ var SceneOne = new Phaser.Class({
     //box tutorial
     this.add.text(2800, 150, 'PRESS RIGHT ARROW TO BOX',{ fontSize: '32px', fill: '#FFF' });
     boxSigns.create(3750,275,"boxSign");
-    this.add.text(3500, 150, 'DEFEAT ENEMIES AND JUMP ON BEAT TO RAISE YOUR SCORE',{ fontSize: '32px', fill: '#FFF' });
+    this.add.text(3500, 150, 'DEFEAT ENEMIES FOR SCORE!',{ fontSize: '32px', fill: '#FFF' });
     enemies.create(3800,275,"enemy");
     boxSigns.create(4050,275,"boxSign");
     enemies.create(4100,275,"enemy");
@@ -505,6 +510,7 @@ function hitDoor(player, door)
 {
   if (this.physics.collide(player, door))
   {
+  
     this.cameras.main.fadeOut(2000, 0, 0, 0);
 
     this.physics.pause();
@@ -515,7 +521,9 @@ function hitDoor(player, door)
 
     bgTrack.stop();
 
-    this.scene.start("CompletedLevelOne");
+    
+    this.scene.start('CompletedLevelOne', {id: this.score});
+    
   }
 }
 
