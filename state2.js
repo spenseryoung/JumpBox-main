@@ -25,7 +25,10 @@ var SceneTwo = new Phaser.Class({
   initialize: function() {
     Phaser.Scene.call(this, { "key": "SceneTwo" });
   },
-  init: function() {},
+  init: function(data) {
+    console.log('init', data);
+    this.score = data.id;
+  },
   preload:function(){
     this.load.image("bg","bg.png");//1000x600
     this.load.image("ground","ground.png"); //150x100
@@ -58,8 +61,8 @@ var SceneTwo = new Phaser.Class({
     this.initialTime = 94;
     text = this.add.text(32, 32, 'Countdown: ' + formatTime(this.initialTime));
 
-    this.health = 3;
-    healthText = this.add.text(32, 48, 'Health: ' + this.health);
+    
+    scoreText = this.add.text(32, 48, 'Score ' + this.score);
 
     // Each 1000 ms call onEvent
     timedEvent = this.time.addEvent({ delay: 1000, callback: onEvent, callbackScope: this, loop: true });
@@ -71,7 +74,7 @@ var SceneTwo = new Phaser.Class({
     // phaser builds in order, so top image last
 
     text.setScrollFactor(0,0);
-    healthText.setScrollFactor(0.0);
+    scoreText.setScrollFactor(0.0);
     
     //this.physics.add.collider(jump, player);
 
@@ -354,94 +357,6 @@ var SceneTwo = new Phaser.Class({
 });
 
 
-function hitDoor(player, door)
-{
-  if (this.physics.collide(player, door))
-  {
-    this.cameras.main.fadeOut(2000, 0, 0, 0);
-
-    this.physics.pause();
-
-    player.setTint(00000);
-
-    player.anims.play('turn');
-
-    bgTrack.stop();
-
-    this.scene.start("CompletedLevelOne", { 
-        "message": "Congrats! You completed level 1!\nPress SPACEBAR to start level 2!"
-      });
-  }
-}
-
-function punchChance(player, enemy)
-{
-  if (cursors.right.isDown)
-    {
-      enemy.disableBody(true, true);
-      player.anims.play('punch', false);
-      this.score = this.score + 1;
-      scoreText.setText('Score: ' + this.score);
-    }
-}
-
-function jumpFail(player, ground)
-{
-  print("touch");
-}
-
-function punchNow()
-{
-  player.anims.play('punch', false);
-}
-
-function jumpNow()
-{
-  if (cursors.up.isDown && player.body.touching.down) // short hop, results in 288.5-261.611111111111
-    {
-      player.anims.play('right', true);
-      player.setVelocityY(-250);
-      jumpTrack.play();
-      console.log("jump");
-    }
-}
 
 
 
-function formatTime(seconds){
-  // Minutes
-  var minutes = Math.floor(seconds/60);
-  // Seconds
-  var partInSeconds = seconds%60;
-  // Adds left zeros to seconds
-  partInSeconds = partInSeconds.toString().padStart(2,'0');
-  // Returns formated time
-  return `${minutes}:${partInSeconds}`;
-}
-
-function onEvent(){
-  this.initialTime -= 1; // One second
-  text.setText('Countdown: ' + formatTime(this.initialTime));
-}
-
-function onEvent2()
-{
-      this.physics.pause();
-
-      player.setTint(0xff0000);
-
-      player.anims.play('turn');
-
-      this.time.addEvent({
-        delay: 2000,
-        loop: false,
-        callback: () => {
-            this.scene.start("Lose", { 
-                "message": "Game Over!\nPress SPACEBAR to restart!"
-            });
-          }
-      })
-
-    gameOver = true;
-
-}
