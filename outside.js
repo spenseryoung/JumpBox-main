@@ -25,7 +25,10 @@ var Outside = new Phaser.Class({
   initialize: function() {
     Phaser.Scene.call(this, { "key": "Outside" });
   },
-  init: function() {},
+  init: function(data) {
+    console.log('init', data);
+    this.score = data.id;
+  },
   preload:function(){
     this.load.image("bg2","forest.png");//1000x600
     this.load.image("ground","ground.png"); //150x100
@@ -232,7 +235,7 @@ function hitDoor3(player, door1)
 
     bgTrack.stop();
 
-    this.scene.start("CompletedLevelTwo");
+    this.scene.start("CompletedLevelTwo", {id: this.score});
   }
 }
 

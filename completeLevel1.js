@@ -5,7 +5,8 @@ var CompletedLevelOne = new Phaser.Class({
         Phaser.Scene.call(this, { "key": "CompletedLevelOne" });
     },
     init: function(data) {
-        this.message = data.message;
+        console.log('init', data);
+        this.score = data.id;
     },
     preload: function() {
         this.load.audio("song2","completed.mp3");
@@ -17,14 +18,14 @@ var CompletedLevelOne = new Phaser.Class({
 
         spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.add.text(20, 250, "Congrats! or so you thought...\nAs you open the door, there's another long hallway...\nAnd a newsong plays...\nPress SPACEBAR to start level 2!",{ fontSize: '20px', fill: '#FFF', boundsAlignH: "center", boundsAlignV: "middle" });
+        this.add.text(20, 250, "Congrats! Or so you thought...\nAs you open the door, there's another long hallway...\nAnd a new song plays...\nPress SPACEBAR to start level 2!",{ fontSize: '20px', fill: '#FFF', boundsAlignH: "center", boundsAlignV: "middle" });
 
     },
     update: function() {
         if (Phaser.Input.Keyboard.JustDown(spacebar))
         {
             bgTrack.stop();
-            this.scene.start('SceneTwo');
+            this.scene.start('SceneTwo', {id: this.score});
         }
     }
 });

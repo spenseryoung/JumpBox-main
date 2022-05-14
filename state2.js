@@ -141,7 +141,7 @@ var SceneTwo = new Phaser.Class({
     doors = this.physics.add.staticGroup();
 
     //doors.create(26250, 230, "door").setScale(0.4,0.4);
-    doors.create(750, 230, "door").setScale(0.4,0.4);
+    //doors.create(750, 230, "door").setScale(0.4,0.4);
 
 
     jumpSigns.create(1200,275,"jumpSign");
@@ -536,6 +536,25 @@ var SceneTwo = new Phaser.Class({
   }
 });
 
+
+
+function hitDoor2(player, door)
+{
+  if (this.physics.collide(player, door))
+  {
+    this.cameras.main.fadeOut(2000, 0, 0, 0);
+
+    this.physics.pause();
+
+    player.setTint(00000);
+
+    player.anims.play('turn');
+
+    bgTrack.stop();
+
+    this.scene.start("Outside", {id: this.score});
+  }
+}
 
 
 

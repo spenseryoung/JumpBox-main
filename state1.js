@@ -139,10 +139,11 @@ var SceneOne = new Phaser.Class({
 
     //doors.create(26250, 230, "door").setScale(0.4,0.4);
 
-=======
+    
+
     doors.create(26250, 230, "door").setScale(0.4,0.4);
-    doors.create(4900, 230, "door").setScale(0.4,0.4);
->>>>>>> 8a4e30def285c5cacc3211b9afacc716b39ea1b0
+    
+
 
     //jump tutorial
     jumpSigns.create(1200,275,"jumpSign");
