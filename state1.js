@@ -137,9 +137,7 @@ var SceneOne = new Phaser.Class({
     boxSigns = this.physics.add.staticGroup();
     doors = this.physics.add.staticGroup();
 
-<<<<<<< HEAD
     //doors.create(26250, 230, "door").setScale(0.4,0.4);
-    doors.create(750, 230, "door").setScale(0.4,0.4);
 
 =======
     doors.create(26250, 230, "door").setScale(0.4,0.4);

@@ -61,13 +61,8 @@ var SceneTwo = new Phaser.Class({
     this.initialTime = 94;
     text = this.add.text(32, 32, 'Countdown: ' + formatTime(this.initialTime));
 
-<<<<<<< HEAD
-    this.score = 0;
-    scoreText = this.add.text(32, 48, 'Score: ' + this.score);
-=======
     
     scoreText = this.add.text(32, 48, 'Score ' + this.score);
->>>>>>> 8a4e30def285c5cacc3211b9afacc716b39ea1b0
 
     // Each 1000 ms call onEvent
     timedEvent = this.time.addEvent({ delay: 1000, callback: onEvent, callbackScope: this, loop: true });
@@ -542,58 +537,6 @@ var SceneTwo = new Phaser.Class({
 });
 
 
-<<<<<<< HEAD
-function hitDoor2(player, door)
-{
-  if (this.physics.collide(player, door))
-  {
-    this.cameras.main.fadeOut(2000, 0, 0, 0);
-
-    this.physics.pause();
-
-    player.setTint(00000);
-
-    player.anims.play('turn');
-
-    bgTrack.stop();
-
-    this.scene.start("Outside");
-  }
-}
-
-function punchChance(player, enemy)
-{
-  if (cursors.right.isDown)
-    {
-      enemy.disableBody(true, true);
-      player.anims.play('punch', false);
-      this.score = this.score + 1;
-      scoreText.setText('Score: ' + this.score);
-    }
-}
-
-function jumpFail(player, ground)
-{
-  print("touch");
-}
-
-function punchNow()
-{
-  player.anims.play('punch', false);
-}
-
-function jumpNow()
-{
-  if (cursors.up.isDown && player.body.touching.down) // short hop, results in 288.5-261.611111111111
-    {
-      player.anims.play('right', true);
-      player.setVelocityY(-250);
-      jumpTrack.play();
-      console.log("jump");
-    }
-}
-=======
->>>>>>> 8a4e30def285c5cacc3211b9afacc716b39ea1b0
 
 
 
